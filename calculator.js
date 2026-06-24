@@ -20,3 +20,29 @@ function calculate(){
     }
 }
 
+document.addEventListener("keydown", function(event){
+
+const key = event.key;
+
+if(!isNaN(key) || key === "."){
+append(key);
+}
+
+else if(key === "+" || key === "-" || key === "*" || key === "/"){
+append(key);
+}
+
+else if(key === "Enter"){
+event.preventDefault();
+calculate();
+}
+
+else if(key === "Backspace"){
+deleteLast();
+}
+
+else if(key === "Escape"){
+clearScreen();
+}
+
+});
