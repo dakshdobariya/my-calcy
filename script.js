@@ -22,6 +22,8 @@ function calculate(){
 
 document.addEventListener("keydown", function(event){
 
+console.log("Pressed:", event.key);
+    
 const key = event.key;
 
 if(!isNaN(key) || key === "."){
