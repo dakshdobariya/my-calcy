@@ -20,31 +20,22 @@ function calculate(){
     }
 }
 
-document.addEventListener("keydown", function(event){
+document.addEventListener("keydown", (e) => {
 
-console.log("Pressed:", event.key);
+if("0123456789.+-*/".includes(e.key)){
+    append(e.key);
+}
+
+if(e.key === "Enter"){
+    calculate();
+}
+
+if(e.key === "Backspace"){
+    deleteLast();
+}
+
+if(e.key === "Escape"){
+    clearScreen();
+}
     
-const key = event.key;
-
-if(!isNaN(key) || key === "."){
-append(key);
-}
-
-else if(key === "+" || key === "-" || key === "*" || key === "/"){
-append(key);
-}
-
-else if(key === "Enter"){
-event.preventDefault();
-calculate();
-}
-
-else if(key === "Backspace"){
-deleteLast();
-}
-
-else if(key === "Escape"){
-clearScreen();
-}
-
 });
